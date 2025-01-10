@@ -29,7 +29,7 @@ const Partner = () => {
                 <div className="text-2xl font-bold my-2">
                     Partner with Medblend Pharma Today
                 </div>
-                <p className="text-[12px]">Ready to grow with Vibcare Pharma? Start your journey now.
+                <p className="text-[12px]">Ready to grow with Medblend Pharma? Start your journey now.
                 </p>
                 <p className="text-[12px]">
                 Your success in the healthcare industry starts here.
