@@ -1,4 +1,5 @@
 import { useState } from "react";
+import axios from "axios";
 
 const EnquiryForm = ({onClose}) => {
   const [formData, setFormData] = useState({
@@ -14,7 +15,13 @@ const EnquiryForm = ({onClose}) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form Submitted", formData);
+    // console.log("Form Submitted", formData);
+    axios.post('https://api.sheetbest.com/sheets/0279e8cf-a541-4843-afe3-afc54ebf071a',formData)
+        setFormData({
+            name: "",
+            email: "",
+            phone: ""
+        })
   };
 
   return (
@@ -34,6 +41,7 @@ const EnquiryForm = ({onClose}) => {
               value={formData.name}
               onChange={handleChange}
               className="w-full px-2 py-2 rounded-sm focus:outline-none border border-gray-400 bg-gray-100 text-sm"
+              required
             />
           </div>
           <div className="mb-4">
@@ -48,6 +56,7 @@ const EnquiryForm = ({onClose}) => {
               value={formData.email}
               onChange={handleChange}
               className="w-full px-2 py-2 rounded-sm focus:outline-none border border-gray-400 bg-gray-100 text-sm"
+              required
             />
           </div>
           <div className="mb-4">
@@ -62,6 +71,7 @@ const EnquiryForm = ({onClose}) => {
               value={formData.phone}
               onChange={handleChange}
               className="w-full px-2 py-2 rounded-sm focus:outline-none border border-gray-400 bg-gray-100 text-sm"
+              required
             />
           </div>
           <button

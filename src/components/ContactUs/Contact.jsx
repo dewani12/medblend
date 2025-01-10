@@ -1,4 +1,5 @@
 import { useState } from "react"
+import axios from "axios"
 
 const Contact = () => {
     const [formData, setFormData] = useState({
@@ -15,7 +16,13 @@ const Contact = () => {
     
       const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("Form Submitted", formData);
+        axios.post('https://api.sheetbest.com/sheets/0279e8cf-a541-4843-afe3-afc54ebf071a',formData)
+        setFormData({
+            name: "",
+            email: "",
+            phone: "",
+            description: ""
+        })
       }
 return (
     <div className="px-5 md:px-8 py-3 max-w-screen-lg mx-auto">
@@ -36,6 +43,7 @@ return (
                         value={formData.name}
                         onChange={handleChange}
                         className="w-[240px] px-2 py-2 rounded-sm focus:border-black border border-gray-400 text-sm"
+                        required
                     />
                 </div>
                 <div className="mb-6">
@@ -50,6 +58,7 @@ return (
                         value={formData.email}
                         onChange={handleChange}
                         className="w-[240px] px-2 py-2 rounded-sm focus:border-black border border-gray-400 text-sm"
+                        required
                     />
                 </div>
                 <div className="mb-6">
@@ -64,6 +73,7 @@ return (
                         value={formData.phone}
                         onChange={handleChange}
                         className="w-[240px] px-2 py-2 rounded-sm focus:border-black border border-gray-400 text-sm"
+                        required
                     />
                 </div>
                 <div className="mb-6">
